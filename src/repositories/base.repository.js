@@ -12,7 +12,7 @@ class BaseRepository {
     }
 
     async create(entity) {
-        return await this.model.create(entiry);
+        return await this.model.create(entity);
     }
 
     async update(id, entity) {
