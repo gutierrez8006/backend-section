@@ -3,7 +3,7 @@ const { JWT_SECRET } = require('../config');
 
 module.exports = function(req, res, next) {
     const token = req.headers.authorization;
-    console.log(req.headers);
+    // console.log(req.headers);
 
     if (!token) {
         const error = new Error();
