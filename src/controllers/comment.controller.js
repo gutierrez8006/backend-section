@@ -27,12 +27,15 @@ class CommentController {
     async getIdeaComments(req, res) {
         const { ideaId } = req.params;
         const comments = await _commentService.getIdeaComments(ideaId);
+        return res.send(comments);
     }
 
     async createComment(req, res) {
         const { body } = req;
         const { ideaId } = req.params;
-        const createdComment = await _commentService.createComment(body, ideaId);
+        const { id: userId } = req.user;
+
+        const createdComment = await _commentService.createComment(body, ideaId, userId);
         return res.status(201).send(createdComment);
     }
 }

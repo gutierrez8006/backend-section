@@ -31,12 +31,12 @@ class IdeaController {
     }
 
     async delete(req, res) {
-        const { ideaID } = req.params;
-        const deletedIdea = await _ideaService.delete(ideaID);
+        const { ideaId } = req.params;
+        const deletedIdea = await _ideaService.delete(ideaId);
         return res.send(deletedIdea);
     }
 
-    async getUserIdeas() {
+    async getUserIdeas(req, res) {
         const { userId } = req.params;
         const ideas = await _ideaService.getUserIdeas(userId);
         return res.send(ideas);
